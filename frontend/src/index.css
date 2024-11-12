@@ -1,11 +1,12 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
+  /* Light color scheme for a positive and calm feel */
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #2e4057; /* Darker text for readability */
+  background-color: #f0f5f9; /* Light blue-gray background */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,56 +14,72 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Link Styling */
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #5a8dee; /* Calming blue */
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #497ac1; /* Slightly darker blue for hover */
 }
 
+/* Body Styling */
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  justify-content: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--background-color);
+  color: var(--color);
+  padding-top: 40px; /* Space from the top */
 }
 
+/* Heading Styling */
 h1 {
-  font-size: 3.2em;
+  font-size: 2.8em;
   line-height: 1.1;
+  text-align: center;
+  margin-top: 0;
+  color: black; /* Soft dark blue */
+  font-weight: 600; /* Slightly bolder for emphasis */
 }
 
+/* Button Styling */
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  border-radius: 12px; /* Rounded corners for a soft look */
+  border: none;
+  padding: 0.6em 1.5em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #76c7c0; /* Calming pastel green */
+  color: #fff;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: background-color 0.25s, transform 0.1s;
 }
 button:hover {
-  border-color: #646cff;
+  background-color: #5daea8; /* Darker green for hover */
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 4px auto #a8d5da; /* Soft focus outline */
+}
+button:active {
+  transform: scale(0.98); /* Subtle press effect */
 }
 
+/* Light Mode Specific Styles */
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: #2e4057; /* Darker color for text */
+    background-color: #e8f0f2; /* Light pastel blue background */
   }
   a:hover {
-    color: #747bff;
+    color: #7baaf7;
   }
   button {
-    background-color: #f9f9f9;
+    background-color: #4fb0a3; /* Slightly darker green in light mode */
   }
 }
