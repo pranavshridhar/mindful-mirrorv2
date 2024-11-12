@@ -1,0 +1,31 @@
+{
+  "name": "mindful-mirrorv2",
+  "version": "1.0.0",
+  "description": "A web app for mental well-being tracking and mindfulness exercises.",
+  "main": "backend/server.js",
+  "scripts": {
+    "dev": "nodemon backend/server.js",
+    "start": "node backend/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "type": "module",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cloudinary": "^2.5.1",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.2",
+    "mailtrap": "^3.4.0",
+    "mongodb": "^6.10.0",
+    "mongoose": "^8.8.1"
+  },
+  "devDependencies": {
+    "eslint": "^9.14.0",
+    "eslint-plugin-jest": "^28.9.0",
+    "nodemon": "^3.1.7",
+    "typescript": "^5.6.3"
+  }
+}
