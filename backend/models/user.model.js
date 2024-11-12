@@ -78,6 +78,14 @@ const userSchema = new mongoose.Schema({
         default: "",
         maxlength: 500, // Limit to keep the summary concise
     },
+    goals: {
+        journalFrequency: { type: Number, default: 3 }, // Times per week, for example
+        mindfulnessMinutes: { type: Number, default: 30 }, // Minutes per week
+    },
+    preferences: {
+        notificationFrequency: { type: String, enum: ["daily", "weekly", "monthly"], default: "daily" },
+        preferredPromptTypes: [String], // e.g., ["mood", "tone", "reflection"]
+    },
 
 }, { timestamps: true });
 
