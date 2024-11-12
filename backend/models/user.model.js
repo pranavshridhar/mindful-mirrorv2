@@ -2,12 +2,23 @@ import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
     name: {
-        type:String,
-        required:true
+        type: String,
+        required: true,
     },
-    username : {type:String, required: true, unique:true},
-    email: {type: String, required: true, unique: true},
-    password: {type : String, required:true},
+    username: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+    password: {
+        type: String,
+        required: true,
+    },
     profilePicture: {
         type: String,
         default: "",
@@ -29,25 +40,46 @@ const userSchema = new mongoose.Schema({
         default: "",
     },
     skills: [String],
-    experience:[{
-        title:String,
-        company:String,
-        startDate: Date,
-        endDate: Date,
-        description: String,
+    experience: [
+        {
+            title: String,
+            company: String,
+            startDate: Date,
+            endDate: Date,
+            description: String,
+        },
+    ],
+    education: [
+        {
+            school: String,
+            fieldOfStudy: String,
+            startYear: Number,
+            endYear: Number,
+        },
+    ],
+    connections: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User",
+        },
+    ],
 
+    // New fields for personality insights and reflection
+    personalityResponses: [
+        {
+            question: String,
+            response: String,
+            timestamp: { type: Date, default: Date.now },
+        },
+    ],
+    petPeeves: [String], // Array of strings summarizing user's dislikes or pet peeves
+    approachToChallenges: {
+        type: String,
+        default: "",
+        maxlength: 500, // Limit to keep the summary concise
+    },
 
-    },],
-    education: [{
-        school: String,
-        fieldOfStudy: String,
-        startYear:Number,
-        endYear:Number,
-    },],
-    connections:[{
-        type: mongoose.Schema.Types.ObjectId,ref:"User"
-    }]
-},{timestamps:true});
+}, { timestamps: true });
 
-const User = mongoose.model("User",userSchema);
+const User = mongoose.model("User", userSchema);
 export default User;

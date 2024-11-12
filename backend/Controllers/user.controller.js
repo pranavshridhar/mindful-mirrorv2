@@ -1,6 +1,6 @@
 export const updateProfile = async (req, res) => {
     try {
-        // List of fields allowed to be updated
+        // List of fields allowed to be updated, including personality and questionnaire responses
         const allowedFields = [
             "name",
             "username",
@@ -12,6 +12,9 @@ export const updateProfile = async (req, res) => {
             "skills",
             "experience",
             "education",
+            "personalityResponses", // Field for storing personality test answers
+            "petPeeves", // Field for indirectly gathered pet peeves
+            "approachToChallenges" // Field for how the user approaches thought processes
         ];
 
         // Construct updated data from allowed fields only
@@ -47,3 +50,65 @@ export const updateProfile = async (req, res) => {
         res.status(500).json({ message: "Internal Server error", error: error.message });
     }
 };
+import Journal from "../models/journal.model.js";
+
+const createJournalEntry = async (userId, content, mood, tone, insights = []) => {
+    const journalEntry = new Journal({
+        user: userId,
+        content,
+        mood,
+        tone,
+        insights,
+    });
+    await journalEntry.save();
+    return journalEntry;
+};
+
+import Notification from "../models/notification.model.js";
+
+const createNotification = async (userId, type, title, message, moodContext = null, toneContext = null, link = null) => {
+    const notification = new Notification({
+        user: userId,
+        type,
+        title,
+        message,
+        moodContext,
+        toneContext,
+        link,
+    });
+    await notification.save();
+    return notification;
+};
+
+const markNotificationAsRead = async (notificationId) => {
+    const notification = await Notification.findByIdAndUpdate(
+        notificationId,
+        { isRead: true, readAt: Date.now() },
+        { new: true }
+    );
+    return notification;
+};
+const getJournalEntriesByDate = async (userId, date) => {
+    const startOfDay = new Date(date);
+    startOfDay.setHours(0, 0, 0, 0);
+
+    const endOfDay = new Date(date);
+    endOfDay.setHours(23, 59, 59, 999);
+
+    const entries = await Journal.find({
+        user: userId,
+        createdAt: { $gte: startOfDay, $lte: endOfDay },
+    });
+
+    return entries;
+};
+const getJournalFrequency = async (userId, startDate, endDate) => {
+    const entries = await Journal.find({
+        user: userId,
+        createdAt: { $gte: new Date(startDate), $lte: new Date(endDate) },
+    });
+
+    const frequency = entries.length; // Total number of entries in the date range
+    return frequency;
+};
+
