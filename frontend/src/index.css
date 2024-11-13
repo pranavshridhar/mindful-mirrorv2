@@ -1,85 +1,13 @@
-:root {
-  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  /* Light color scheme for a positive and calm feel */
-  color-scheme: light dark;
-  color: #2e4057; /* Darker text for readability */
-
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Link Styling */
-a {
-  font-weight: 500;
-  color: #5a8dee; /* Calming blue */
-  text-decoration: inherit;
-}
-a:hover {
-  color: #497ac1; /* Slightly darker blue for hover */
-}
-
-/* Body Styling */
-body {
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  min-width: 320px;
-  min-height: 100vh;
-  background-color: var(--background-color);
-  color: var(--color);
-  padding-top: 40px; /* Space from the top */
-}
-
-/* Heading Styling */
-h1 {
-  font-size: 2.8em;
-  line-height: 1.1;
-  text-align: center;
-  margin-top: 0;
-  color: black; /* Soft dark blue */
-  font-weight: 600; /* Slightly bolder for emphasis */
-}
-
-/* Button Styling */
-button {
-  border-radius: 12px; /* Rounded corners for a soft look */
-  border: none;
-  padding: 0.6em 1.5em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #76c7c0; /* Calming pastel green */
-  color: #fff;
-  cursor: pointer;
-  transition: background-color 0.25s, transform 0.1s;
-}
-button:hover {
-  background-color: #5daea8; /* Darker green for hover */
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto #a8d5da; /* Soft focus outline */
-}
-button:active {
-  transform: scale(0.98); /* Subtle press effect */
-}
-
-/* Light Mode Specific Styles */
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #2e4057; /* Darker color for text */
-    background-color: #e8f0f2; /* Light pastel blue background */
-  }
-  a:hover {
-    color: #7baaf7;
-  }
-  button {
-    background-color: #4fb0a3; /* Slightly darker green in light mode */
-  }
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }

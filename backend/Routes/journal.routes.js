@@ -11,11 +11,11 @@ import { protectRoute } from "../middleware/auth.middleware.js";
 
 const router = express.Router();
 
-router.post("/", protectRoute, createJournalEntry);
+router.post("/", createJournalEntry);
 router.get("/", protectRoute, getAllJournalEntries);
 router.get("/by-date", protectRoute, getJournalEntriesByDate);
 router.put("/:id", protectRoute, updateJournalEntry);
 router.delete("/:id", protectRoute, deleteJournalEntry);
 router.get("/frequency", protectRoute, getJournalFrequency);
 
-export default router;
+export default journalRoutes;

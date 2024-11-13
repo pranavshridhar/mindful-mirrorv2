@@ -4,7 +4,7 @@ import Journal from "../models/journal.model.js";
 export const createJournalEntry = async (req, res) => {
     try {
         const { content, mood, tone, insights } = req.body;
-        const userId = req.user._id; // Assuming user ID is set by middleware
+        // const userId = req.user._id; // Assuming user ID is set by middleware
 
         // Validate required fields
         if (!content || !mood || !tone) {
@@ -13,7 +13,7 @@ export const createJournalEntry = async (req, res) => {
 
         // Create a new journal entry
         const journalEntry = new Journal({
-            user: userId,
+            // user: userId,
             content,
             mood,
             tone,
