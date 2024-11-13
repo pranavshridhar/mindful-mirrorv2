@@ -121,7 +121,7 @@ def analyze():
     entry = data["entry"]
 
     results = process(entry)
-    return jsonify(results), 200
+    return jsonify({"results": results}), 200
 
 
     
