@@ -1,0 +1,11 @@
+name: mm_ai_api
+channels:
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/r
+dependencies:
+  - python=3.10
+  - ipykernel
+  - conda-forge::spacy
+  - conda-forge::transformers
+  - ipywidgets
+  - scikit-learn
